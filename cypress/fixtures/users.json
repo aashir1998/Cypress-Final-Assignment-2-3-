@@ -1,0 +1,28 @@
+{
+    "firstname": "standard_user",
+    "lastname": "secret_sauce",
+    "address": "15th St",
+    "city": "LHE",
+    "state": "VA",
+    "zipcode": "12345",
+    "phone": "033-1212187",
+    "ssn": "1212121",
+    "username": "ana",
+    "logusername":"ana",
+    "password": "password",
+    "confirm": "password",
+    "wrongpass":"wrongpass",
+
+    "payeename":"Abubakar",
+    "payeeaddress":"752 DHA",
+    "payeecity":"LHE",
+    "payeestate":"Pun",
+    "payeezipcode":"21212",
+    "payeephone":"1122",
+    "payeeaccount":"1122",
+    "amount":"100"
+
+
+
+  }
+  

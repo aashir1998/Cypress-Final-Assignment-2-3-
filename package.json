@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "cypress:open_assignment2": "npx cypress open --env ENVIRONMENT=assignment2",
+    "cypress:run_assignment2": "npx cypress run --env ENVIRONMENT=assignment2"
+  },
+  "dependencies": {
+    "cypress": "^10.10.0"
+  },
+  "devDependencies": {
+    "cypress-v10-preserve-cookie": "^1.2.1"
+  }
+ 
+}
