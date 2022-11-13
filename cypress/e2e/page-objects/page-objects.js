@@ -124,10 +124,10 @@ export function register_successful() {
     cy.get("#leftPanel > ul > li:nth-child(5) > a").click()
     cy.get('#accountId').select(1)
     cy.wait(1000)
-    cy.get('[ng-model="criteria.transactionId"]').type("14254")
+    cy.get('[ng-model="criteria.transactionId"]').type("13788")
     cy.get("#rightPanel > div > div > form > div:nth-child(5) > button").click()
     cy.get("#transactionTable > tbody > tr > td:nth-child(2) > a").click()
-    cy.get('tbody > :nth-child(1) > :nth-child(2)').contains("14254")
+    cy.get('tbody > :nth-child(1) > :nth-child(2)').contains("13788")
   }
 
 export function find_transaction_by_date() {
@@ -136,7 +136,7 @@ export function find_transaction_by_date() {
     cy.get('[ng-model="criteria.onDate"]').type("11-07-2022")
     cy.get(':nth-child(9) > .button').click()
     cy.get(':nth-child(1) > :nth-child(2) > .ng-binding').click()
-    cy.get('tbody > :nth-child(2) > :nth-child(2)').contains("11-07-2022")
+    cy.get('tbody > :nth-child(2) > :nth-child(2)').contains("11-13-2022")
 }
     
 export function find_transaction_by_amount() {
@@ -162,7 +162,7 @@ export function get_loan(){
   cy.get('#downPayment').type("100")
   cy.get('[colspan="2"] > .button').click()
   cy.get("#newAccountId").then(($id) => {
-    id=$id.text()
+    const id=$id.text()
     cy.get('#leftPanel > ul > :nth-child(2) > a').click()
     cy.wait(2000);
     cy.get('#accountTable >tbody >tr').find('td:nth-child(1)').contains(id).click()
