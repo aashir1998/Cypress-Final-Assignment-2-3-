@@ -14,6 +14,7 @@ export function set_fixtures() {
   cy.fixture('users').as('usersDataWithAlias')
 }
 export function logout() {
+  cy.get("#leftPanel > ul > li:nth-child(8) > a").click()
   
 }
   
@@ -28,13 +29,11 @@ export function register_successful() {
       cy.get('[name="customer.address.zipCode"]').type(users.zipcode)
       cy.get('[name="customer.phoneNumber"]').type(users.phone)
       cy.get('[name="customer.ssn"]').type(users.ssn)
-      cy.get('[name="customer.username"]').type(users.username)
+      cy.get('[name="customer.username"]').type(users.new_username)
       cy.get('[name="customer.password"]').type(users.password)
       cy.get('[name="repeatedPassword"]').type(users.confirm)
       cy.get('[value="Register"]').click()  
       cy.get('.title').contains('Welcome')
-      // to be added for test case 2
-      // cy.get('#leftPanel > ul > :nth-child(1) > a').click();
 })}
 
   
@@ -77,10 +76,13 @@ export function register_successful() {
   
   export function open_account(name,password) {
     cy.get('#leftPanel > ul > :nth-child(1) > a').click();
-    cy.get('div > [value="Open New Account"]').trigger('mouseover').click({ force: true })
-    cy.get('div > [value="Open New Account"]').trigger('mouseover').click({ force: true })
-    cy.get('div > [value="Open New Account"]').trigger('mouseover').click({ force: true })
-    cy.get('div > [value="Open New Account"]').trigger('mouseover').click({ force: true })
+    //cy.get('#sizzle1668333028387 > div > .button').click();
+    cy.get('div > [value="Open New Account"]').click()
+    cy.get('div > [value="Open New Account"]').click({ force: true })
+    cy.get('div > [value="Open New Account"]').click({ force: true })
+    cy.get('div > [value="Open New Account"]').click()
+    cy.get('div > [value="Open New Account"]').click({ force: true })
+    cy.get('div > [value="Open New Account"]').click({ force: true })
     cy.wait(2000)
     cy.get('.ng-scope > :nth-child(2)').contains("Congratulations, your account is now open.")
   }
@@ -160,10 +162,18 @@ export function get_loan(){
   cy.get('#downPayment').type("100")
   cy.get('[colspan="2"] > .button').click()
   cy.get("#newAccountId").then(($id) => {
-    const id=$id.text()
+    id=$id.text()
     cy.get('#leftPanel > ul > :nth-child(2) > a').click()
     cy.wait(2000);
     cy.get('#accountTable >tbody >tr').find('td:nth-child(1)').contains(id).click()
     cy.get("#balance").contains('$1000.00')
+    return id;
+
   })
+}
+export function verify_total(){
+  cy.get('#headerPanel > ul.leftmenu > li:nth-child(6) > a').click()
+  cy.get('#rightPanel > table > tbody > tr > td:nth-child(1) > form > table > tbody > tr > td:nth-child(1) > button').click()
+  cy.get(' #leftPanel > ul > li:nth-child(2) > a').click()
+  
 }
